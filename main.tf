@@ -1,5 +1,5 @@
 module "vpc" {
-    source = "github.com/bobtfish/terraform-vpc"
+    source = "github.com/jholtan/terraform-vpc"
     region = "${var.region}"
     account = "${var.account}"
     networkprefix = "${var.networkprefix}"
