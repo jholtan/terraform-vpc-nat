@@ -50,7 +50,7 @@ resource "aws_security_group" "allow_all" {
 }
 
 module "instances" {
-  source = "github.com/terraform-community-modules/tf_aws_nat"
+  source = "github.com/jholtan/tf_aws_nat"
   instance_type = "${var.instance_type}"
   region = "${var.region}"
   instance_count = "2"
