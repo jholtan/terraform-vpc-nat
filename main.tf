@@ -12,9 +12,9 @@ resource "aws_route_table" "private" {
     vpc_id = "${module.vpc.id}"
 
     tags {
-        Name = "${element(split(\",\", var.az_list_all), count.index)} ${var.account} private"
+        Name = "${element(split(",", var.az_list_all), count.index)} ${var.account} private"
         type = "private"
-        az = "${element(split(\",\", var.az_list_all), count.index)}"
+        az = "${element(split(",", var.az_list_all), count.index)}"
     }
 }
 
@@ -27,7 +27,7 @@ resource "aws_main_route_table_association" "private" {
 #    count = "${length(split(",", var.azs_list_all))}"
 #    route_table_id = "${element(aws_route_table.private.*.id, count.index)}"
 #    destination_cidr_block = "0.0.0.0/0"
-#    instance_id = "${element(split(\",\", module.instances.instance_ids), count.index)}"
+#    instance_id = "${element(split(",", module.instances.instance_ids), count.index)}"
 #}
 
 resource "aws_security_group" "allow_all" {
